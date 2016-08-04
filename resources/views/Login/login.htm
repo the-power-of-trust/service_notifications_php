@@ -1,0 +1,58 @@
+    <!-- Contact Section -->
+    <section id="login">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">{t k='loginbutton' g='account'}</h2>
+                    
+                </div>
+            </div>
+            
+	<div class="row" >
+		<form role="form" method="POST" action="{link do="login" controller="login"}" id="bigloginform">
+            		<div class="col-md-6 col-md-offset-3" id="registration-form">
+
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<div class="form-group">
+							<input type="email" name="email" id="email" class="form-control" 
+								placeholder="{t k='emailaddress' g='front'}" required value="{$email}">
+							
+						</div>
+						<div class="form-group">
+							<input type="password" name="password" id="password" class="form-control" 
+								placeholder="{t k='passwordfc' g='front'}" required >
+						</div>
+					</div>
+				</div>
+			
+				
+				<div class="row">
+					<div class='alert alert-danger' id="loginerrormessage" style="display:none;">
+						<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+						<strong id="registrationerrormessagetext"></strong>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+					<input type="submit" value="{t k='loginbutton' g='account'}" class="btn btn-primary btn-block btn-lg" tabindex="7">
+					</div>
+				</div>
+				<div class="row social-buttons">
+					<h4>{t k='orquicklogin' g='front'}:</h4>
+					<div class="row">		
+					<a href="{link controller="login" do="sociallogin" id="facebook"}" class="btn btn-lg btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+					<a href="{link controller="login" do="sociallogin" id="twitter"}" class="btn btn-lg btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+					<a href="{link controller="login" do="sociallogin" id="google"}" class="btn btn-lg btn-gp"><i class="fa fa-google"></i> Google</a>
+					<a href="{link controller="login" do="sociallogin" id="linkedin"}" class="btn btn-lg btn-ln"><i class="fa fa-linkedin"></i> LinkedIn</a>
+					</div>
+				</div>
+				
+			</div>
+			</form>
+		</div>
+        </div>
+</section>
+    
+
+    

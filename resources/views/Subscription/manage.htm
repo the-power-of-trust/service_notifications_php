@@ -1,0 +1,90 @@
+<div class="container" id="searchhome">
+	
+	
+	<div class="row">
+	<h2>{t k="subscriptionforplatform" g="subs" } </h2>
+	
+	{if $status.platform.enabled}
+	<div class="row">
+	    <div class="col-sm-6">
+	        <div>{t k="howoftentosend" g="subs" } : 
+	        <b>
+	        {if $status.platform.settings.scheduler == 'instant'}{t k="instantmessage" g="subs" }{/if}
+	        {if $status.platform.settings.scheduler == 'daily'}{t k="dailymessage" g="subs" }{/if}
+	        </b>
+	        </div>
+	        <div>{t k="contentstype" g="subs" } :
+	        <b>
+	        {if $status.platform.settings.contents == 'short'}{t k="shortcontents" g="subs" }{/if}
+	        {if $status.platform.settings.contents == 'extended'}{t k="extendedcontents" g="subs" }{/if}
+	        </b>
+	        </div>
+	        <div>
+	        <a href="{link c="subscription" view="editsystem"}" class="btn btn-default btn-small">{t k="editsubscription" g="subs" }</a>
+	        <a href="{link c="subscription" do="delete" personid="system"}" class="btn btn-default btn-small" 
+	            title="{t k="removesubscription" g="subs" }" onclick="return confirm('{t k="areyousure" g="subs" }')">
+	            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+	        </div>
+	     </div>
+	    <div class="col-sm-6">
+	        <ul>
+	        {foreach from=$status.platform.settings.options item=event}
+            <li>{t k=$event g="subs" }
+            {/foreach}
+            </ul>
+	    </div>
+	</div>
+	{else}
+	<p><span class="label label-default">{t k="subscriptionforplatformmissed" g="subs" }</span>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="{link c="subscription" view="editsystem"}" class="btn btn-success">{t k="subscribeforsystem" g="subs" }</a>
+	</p>
+	{/if}
+	
+	</div>
+	
+	<div class="row">
+	<h2>{t k="subscriptionforpersons" g="subs" }</h2>
+	{if count($status.persons) > 0}
+	{foreach from=$status.persons item=person}
+	<div class="row" style="margin-top:20px;">
+	    <div class="col-sm-6">
+	        <h3>{$person.personname}</h3>
+	        
+	        <div>{t k="howoftentosend" g="subs" } : 
+	        <b>
+	        {if $person.scheduler == 'instant'}{t k="instantmessage" g="subs" }{/if}
+	        {if $person.scheduler == 'daily'}{t k="dailymessage" g="subs" }{/if}
+	        </b>
+	        </div>
+	        <div>{t k="contentstype" g="subs" } :
+	        <b>
+	        {if $person.contents == 'short'}{t k="shortcontents" g="subs" }{/if}
+	        {if $person.contents == 'extended'}{t k="extendedcontents" g="subs" }{/if}
+	        </b>
+	        </div>
+	        <div style="margin-top:20px;">
+	        <a href="{link c="subscription" view="editperson" personid=$person.personid}" class="btn btn-default btn-small">{t k="editsubscription" g="subs" }</a>
+	        <a href="{link c="subscription" do="delete" personid=$person.personid}" class="btn btn-default btn-small" 
+	            title="{t k="removesubscription" g="subs" }" onclick="return confirm('{t k="areyousure" g="subs" }')">
+	            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+	        </div>
+	     </div>
+	    <div class="col-sm-6">
+	        <ul>
+	        {foreach from=$person.options item=event}
+            <li>{t k=$event g="subs" }
+            {/foreach}
+            </ul>
+	    </div>
+	</div>
+	{/foreach}
+	{else}
+	
+	<p><span class="label label-default">{t k="subscriptionforplatformmissed" g="subs" }</span></p>
+	
+	{/if}
+	<div style="margin-top:40px;"><a href="{link c="subscription" view="addperson"}" class="btn btn-info">{t k="addperson" g="subs" }</a></div>
+	</div>
+	
+</div>

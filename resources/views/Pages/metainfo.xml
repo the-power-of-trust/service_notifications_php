@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pages>
+	<about>
+		<title>Про {$config.sitename}</title>
+		<metainfo>Information about {$config.sitename}.</metainfo>
+		<metakeywords>{$config.sitename}</metakeywords>
+	</about>
+	
+	<faq>
+		<title>Часті запитання на {$config.sitename}</title>
+		<metainfo>Frequently asked questions</metainfo>
+		<metakeywords>Frequently asked questions</metakeywords>
+	</faq>
+</pages>

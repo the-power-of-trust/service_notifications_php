@@ -1,0 +1,138 @@
+<div class="container" >
+	<h1>{t k="subscribeforpersonevents" g="subs" }</h1>
+	
+	<div class="row">
+	<h2>{t k="person" g="subs" } </h2>
+	<div class="row">
+	    
+    <h2>{$personstatus.personname}</h2>    
+	</div>
+	</div>
+	
+	<form action="{link c="subscription" do="savesubscription"}" method="POST" id="subscriptionform">
+	<input type="hidden" name="id" value="{$personstatus.personid}" id="personid">
+	
+	<div class="row" style="margin-top:30px;">
+	
+	<div class="col-sm-6">
+        <div class="row">
+        <h2>{t k="subscribtionevents" g="subs" } </h2>
+        <p><input type="checkbox" id="checkall"> <span class="small">({t k="checkall" })</span></p>
+        <ul>
+        {foreach from=$structure.person item=eventtitle key=$event}
+        <li><input type="checkbox" name="options[]" class="namecheckbox" value="{$event}"
+            {if in_array($event,$personstatus.options)}checked{/if}>
+            {t k=$event g="subs" }
+        {/foreach}
+        </ul>
+        </div>
+	</div>
+	
+	<div class="col-sm-6">
+        <div class="row">
+        <h2>{t k="notificationtype" g="subs" } </h2>
+        
+        <h3>{t k="howoftentosend" g="subs" } </h3>
+        <div class="row">
+            <div class="col-sm-11 col-sm-offset-1">
+            <div>
+            <input type="radio" name="scheduler" value="instant" 
+                {if $personstatus.scheduler=='instant'}checked{/if}>
+                {t k="instantmessage" g="subs" }
+            </div>
+            <div>
+            <input type="radio" name="scheduler" value="daily"
+                {if $personstatus.scheduler=='daily'}checked{/if}> 
+                {t k="dailymessage" g="subs" }
+            </div>
+            </div>
+        </div>
+        
+        <h3>{t k="contentstype" g="subs" } </h3>
+        <div class="row">
+            <div class="col-sm-11 col-sm-offset-1">
+            <div>
+            <input type="radio" name="contents" value="short" 
+                {if $personstatus.contents=='short'}checked{/if}> 
+                {t k="shortcontents" g="subs" }
+            </div>
+            <div>
+            <input type="radio" name="contents" value="extended"
+                {if $personstatus.contents=='extended'}checked{/if}> 
+                {t k="extendedcontents" g="subs" }
+            </div>
+            </div>
+        </div>
+        </div>
+	</div>
+	</div>
+	
+	<div class="row">
+	<input type="submit" value="{t k="savepersonsubscription" g="subs" }" class="btn btn-success" id="submitnutton">
+	</div>
+	</form>
+</div>
+
+<script type="text/javascript">
+{literal}
+$(function() {	
+    $("#checkall").click(function(){
+        $('.namecheckbox').prop('checked', this.checked);
+    });
+    $("#findperson").click(function(e){
+        // send ajax to try to find a person
+        e.preventDefault();
+        
+        var name = $('#personname').val();
+        var surname = $('#personsurname').val();
+        
+        if (name == '' || surname == '') {
+            return ;
+        }
+        
+        $('#findperson').button('loading');
+        
+        $.ajax({
+            type: "POST",
+            url: '{/literal}{link c="subscription" view="find"}{literal}',
+            dataType: "json",
+            data: {name: name, surname: surname, responseformat: 'json'}, 
+            success: function(data)
+            {
+                $('#findperson').button('reset');
+                
+                if(data.status != 'ok'){
+                    alert(data.message);
+                    
+                } else if(data.response.found == 'n') {
+                    alert('{/literal}{t k="personnotfound" g="subs"}{literal}');
+                } else {
+                    $('#persondisplay').text(data.response.personfullname);
+                    $('#personid').val(data.response.personid);
+                    $('#persondiv').removeClass("hidden");
+                    $('#submitnutton').removeAttr("disabled");
+                }
+            }
+        });
+        
+    });
+    
+    $("#subscriptionform").submit(function(e){
+        if ($('#personid').val() == '') {
+            e.preventDefault();
+            alert('{/literal}{t k="personnotselected" g="subs"}{literal}');
+            return false;
+        }
+        
+        if ($('input.namecheckbox[type=checkbox]:checked').length == 0) {
+            e.preventDefault();
+            alert('{/literal}{t k="noeventsselected" g="subs"}{literal}');
+            return false;
+        }
+        
+        return true;
+    });
+    
+});
+{/literal}
+</script>

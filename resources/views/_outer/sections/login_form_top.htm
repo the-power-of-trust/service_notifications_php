@@ -1,0 +1,86 @@
+
+			<li class="dropdown pull-right" id="loginformdropdown">
+				<a href="#" class="dropdown-toggle btn btn-primary" data-toggle="dropdown">
+					<i class="fa fa-lock"></i> {t k="loginorregister" g="front"} <span class="caret"></span></a>
+				<ul id="login-dp" class="dropdown-menu">
+				<li>
+				<div class="row">
+					<div class="col-md-12">
+					 <form class="form" role="form" method="POST" action="{link c="login" do="login" responseformat="json"}" accept-charset="UTF-8" id="login-nav">
+						<input type="hidden" name="afterloginredirect" value="{$afterloginredirect}" >
+						
+						<div class="form-group">
+							 <label class="sr-only" for="login">{t k="loginemail" g="front"}</label>
+							 <input type="text" class="form-control" name="email" placeholder="{t k="loginemail" g="front"}" 
+							 	required id="login-nav-email">
+						</div>
+						<div class="form-group">
+							 <label class="sr-only" for="password">{t k="password" g="front"}</label>
+							 <input type="password" class="form-control" name="password" placeholder="{t k="password" g="front"}" required>
+							 <div class="help-block text-right"><a href="{link c="Login" view="forgot"}">{t k='forgot' g="front"}</a></div>
+						</div>
+						<div class="form-group text-danger text-center" id="login-nav-error" style="display:none;">
+							 
+						</div>
+						<div class="form-group">
+							 <button type="submit" class="btn btn-primary btn-block" id="loginformsubmit">{t k='login' g="front"}</button>
+						</div>
+						<div class="checkbox">
+							 <label>
+							 <input type="checkbox" name="rememberme" value="y"> {t k='rememberme' g="front"}
+							 </label>
+						</div>
+					</form>
+					<script type="text/javascript">
+					{literal}
+					$(function() {	
+						$( "#login-nav" ).submit(function(e) {
+
+							e.preventDefault();
+							$('#login-nav-error').hide();
+							$("#loginformsubmit").attr('disabled','disabled');
+							$.ajax({
+								type: "POST",
+								url: $("#login-nav").attr('action'),
+								dataType: "json",
+								data: $("#login-nav").serialize(), 
+								success: function(data)
+								{
+									if(data.status!='ok'){
+										$('#login-nav-error').text(data.message);
+										$('#login-nav-error').show();
+										$("#login-nav-email").focus();
+										$("#loginformsubmit").removeAttr('disabled');
+									}else{
+										window.location.href = getThisUrlToReload(data.response.redirecturl);
+									}
+								}
+							});
+						});
+						
+					});
+					{/literal}
+					</script>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						
+						<span class="hint">{t k='orquicklogin' g="front"}</span> 
+						<div class="social-buttons">
+						<a href="{link c="login" do="sociallogin" id="facebook"}" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+						<a href="{link c="login" do="sociallogin" id="twitter"}" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a><br>
+						<a href="{link c="login" do="sociallogin" id="google"}" class="btn btn-gp"><i class="fa fa-google"></i> Google</a>
+						<a href="{link c="login" do="sociallogin" id="linkedin"}" class="btn btn-ln"><i class="fa fa-linkedin"></i> LinkedIn</a>
+						</div>
+					</div>
+					
+				</div>
+				<div class="bottom text-center">
+					<a href="{link c="Login" view="register"}" class="btn btn-danger btn-block"><b>{t k='register' g="front"}</b></a>
+				</div>
+				
+				</li>
+				</ul>
+			</li>
+       

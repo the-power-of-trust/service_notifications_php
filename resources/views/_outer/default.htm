@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href='/images/favicon.ico' rel='shortcut icon' />
+
+    <title>{$html_title}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/components/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <LINK type="text/css" rel="stylesheet" href="/css/app.css">
+    
+    <link href="/components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <script src="/components/jquery/jquery.min.js"></script>
+    <script src="/js/common.js"></script>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-xs-right">
+            <li class="nav-item{if $CURRENTPAGE=='defaultview'} active{/if}">
+              <a class="nav-link" href="/">{t k="home" g="front"} </a>
+            </li>
+            <li class="nav-item{if $CURRENTPAGE=='pages' && $CURRENTSUBPAGE == 'about'} active{/if}">
+              <a class="nav-link" href="{link c="pages" id="about"}">{t k="about" g="front"}</a>
+            </li>
+            <li class="nav-item{if $CURRENTPAGE=='contact'} active{/if}">
+              <a class="nav-link" href="{link c="contact"}">{t k="contact" g="front"}</a>
+            </li>
+            {if $USER.id>0}
+            <li class="nav-item{if $CURRENTPAGE=='profile'} active{/if}">
+              <a class="nav-link" href="{link c="Profile"}">{t k="profile" g="in"}</a>
+            </li>
+            {/if}
+            {if $USER.id>0}
+            <li class="pull-right">
+            
+            <a href="/login/d/logout" class="btn btn-primary">{t k='logout' g='front'}</a>
+            </li>
+            <li class="pull-right" style="padding:10px;">
+            {t k="welcome" g="front" p1=$USER.name}
+            </li>
+            {else}
+            {include file='_outer/sections/login_form_top.htm'}
+            {/if}
+          </ul>
+        </nav>
+        <h3 class="text-muted">{$config.sitename}</h3>
+      </div>
+
+      
+    {if $MESSAGE!=''}
+        <div class="container">
+            <div class="row" style="padding-left:30px;padding-right:30px;">
+            <div class="alert alert-{if $MESSAGESTYLE!=''}{$MESSAGESTYLE}{else}info{/if}">
+            {$MESSAGE}
+            <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+            </div>
+            </div>
+        </div>
+    {/if}
+
+    <div class="container" id="content">
+        {$INNERCONTENTS}
+    </div>
+      
+
+      <footer class="footer">
+        <p>&copy; {$config.sitename} 2016</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <script src="/components/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

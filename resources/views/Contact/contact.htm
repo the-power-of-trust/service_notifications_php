@@ -1,0 +1,72 @@
+﻿<div class="container">
+
+{literal}
+<style>
+.followus span {
+		margin-left:20px;margin-right:10px;
+}
+</style>
+{/literal}
+
+<div class="container">
+<div class="row">
+  <form action="/" method="POST" role="form" id="contactform">
+  	<input type="hidden" name="controller" value="contact">
+  	<input type="hidden" name="do" value="contactmessage">
+  	<input type="hidden" name="datacheck" id="datacheck" value="0">
+  	<input type="hidden" name="datacheck1" id="datacheck1" value="{$antispam1}">
+  	<input type="hidden" name="datacheck2" id="datacheck2" value="{$antispam2}">
+
+    <div class="col-lg-6">
+      <div class="form-group">
+        <label for="InputName">{t k='yourname' g='front'}</label>
+        <div class="input-group">
+        	
+        	<input type="text" class="form-control" id="contactname" name="name" value="{$data.name}" placeholder="{t k='entername' g='front'}" required>
+        	<span class="input-group-addon"><i class="glyphicon glyphicon-user form-control-feedback"></i></span>
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="InputEmail">{t k='youremail' g='front'}</label>
+        <div class="input-group">
+        	
+          <input type="email" class="form-control" id="contactemail" name="email" value="{$data.email}" placeholder="{t k='enteremail' g='front'}" required  >
+          <span class="input-group-addon"><i class="glyphicon glyphicon-envelope form-control-feedback"></i></span>
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="InputMessage">{t k='message' g='front'}</label>
+        <div class="input-group">
+          <textarea name="message" id="contactmessage" class="form-control" rows="5" required>{$data.message}</textarea>
+          <span class="input-group-addon"><i class="glyphicon glyphicon-edit form-control-feedback"></i></span></div>
+      </div>
+      <input type="submit" name="submit" id="submit" value="Send contact message" class="btn btn-info pull-right">
+    </div>
+  </form>
+  <hr class="featurette-divider hidden-lg">
+  <div class="col-lg-5 col-md-push-1">
+  	<p>
+  	{t k='contacttext' g='front' p1=$config.sitename p2 = $contactemail}
+  	
+  	{if $config.contactaltemail != ''}
+  	{t k='contacttextalt' g='front' p1=$config.contactaltemail}
+  	{/if}
+  	</p>
+  	
+  </div>
+</div>
+
+</div>
+
+</div>
+
+<script language="javascript">
+{literal}
+$(function() {
+	$('#contactform').submit(function() {
+		$('#datacheck').val($('#datacheck1').val() - (- $('#datacheck2').val()));
+		return true;
+	});
+});
+{/literal}
+</script>

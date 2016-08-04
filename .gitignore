@@ -1,0 +1,17 @@
+storage
+storage/*
+
+*~
+*.marks
+
+app/config.inc.php
+
+public_html/components
+public_html/components/*
+
+src/vendor/*
+src/composer.lock
+src/composer.phar
+
+storage/*
+

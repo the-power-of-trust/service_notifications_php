@@ -1,0 +1,36 @@
+
+or = or
+yes = Yes
+no = No
+
+privacypolicy = Privacy Policy
+termsofuse = Terms of Use
+
+free = Free
+
+dboperationerror = DB operation error
+repeatprocess = Repeat the process
+
+all = All
+from = From
+last = Last
+next = Next
+first = First
+previous = Previous
+add = Add
+more = More
+example = Example
+
+details = Details
+
+browse = Browse
+
+change = Change
+close = Close
+cancel = Cancel
+
+country = Country
+address = Address
+
+enabled = Enabled
+disabled = Disabled

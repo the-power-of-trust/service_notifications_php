@@ -1,0 +1,17 @@
+<section >
+        <div class="container">
+            <div class="row alert alert-danger">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Error</h2>
+                    <h3 class="section-subheading">{$errormessage}</h3>
+                </div>
+            </div>
+            
+            {if $errortrace != ''}
+            <div class="row">
+                <pre>{$errortrace}
+                </pre>
+            </div>
+            {/if}
+        </div>
+    </section>

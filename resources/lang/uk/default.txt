@@ -1,0 +1,45 @@
+
+or = чи
+yes = Так
+no = Ні
+
+privacypolicy = Політика Конфіденційності
+termsofuse = Правила використання
+
+free = Безкоштовно
+
+edit = Редагувати
+
+dboperationerror = Помилка бази даних
+repeatprocess = Повторіть
+
+all = Всі
+from = Від
+last = Останній
+next = Наступний
+first = Перший
+previous = Попередній
+add = Додати
+more = Більше
+example = Приклад
+
+details = Деталі
+
+browse = Перегляд
+
+change = Змінити
+close = Закрити
+cancel = Відмінити
+
+country = Країна
+address = Адреса
+
+enabled = Включено
+disabled = Виключено
+
+checkall = Відмітити всі
+
+
+name = Ім’я
+surname = Прізвище
+success = Успіх

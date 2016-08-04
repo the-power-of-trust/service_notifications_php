@@ -1,0 +1,71 @@
+<div class="container" >
+	<h1>{t k="subscribeforsystemevents" g="subs" }</h1>
+	
+	<form action="{link c="subscription" do="savesubscription"}" method="POST">
+	<input type="hidden" name="id" value="system">
+	
+	<div class="row">
+	<h2>{t k="subscribtionevents" g="subs" } </h2>
+	<p><input type="checkbox" id="checkall"> <span class="small">({t k="checkall" })</span></p>
+	<ul>
+	{foreach from=$structure.platform item=eventtitle key=$event}
+	<li><input type="checkbox" name="options[]" class="namecheckbox" value="{$event}"
+	    {if $status.enabled && in_array($event,$status.settings.options)}checked{/if}>
+	    {t k=$event g="subs" }
+	{/foreach}
+	</ul>
+	</div>
+	
+	
+	<div class="row">
+	<h2>{t k="notificationtype" g="subs" } </h2>
+	
+	<h3>{t k="howoftentosend" g="subs" } </h3>
+	<div class="row">
+	    <div class="col-sm-11 col-sm-offset-1">
+	    <div>
+	    <input type="radio" name="scheduler" value="instant" 
+	        {if !$status.enabled || $status.enabled && $status.settings.scheduler=='instant'}checked{/if}>
+	        {t k="instantmessage" g="subs" }
+	    </div>
+	    <div>
+	    <input type="radio" name="scheduler" value="daily"
+	        {if $status.enabled && $status.settings.scheduler=='daily'}checked{/if}> 
+	        {t k="dailymessage" g="subs" }
+	    </div>
+	    </div>
+	</div>
+	
+	<h3>{t k="contentstype" g="subs" } </h3>
+	<div class="row">
+	    <div class="col-sm-11 col-sm-offset-1">
+	    <div>
+	    <input type="radio" name="contents" value="short"
+	        {if !$status.enabled || $status.enabled && $status.settings.contents=='short'}checked{/if}> 
+	        {t k="shortcontents" g="subs" }
+	    </div>
+	    <div>
+	    <input type="radio" name="contents" value="extended"
+	        {if $status.enabled && $status.settings.contents=='extended'}checked{/if}> 
+	        {t k="extendedcontents" g="subs" }
+	    </div>
+	    </div>
+	</div>
+	</div>
+	
+	<div class="row">
+	<input type="submit" value="{t k="subscribeforsystem" g="subs" }" class="btn btn-success">
+	</div>
+	</form>
+</div>
+
+<script type="text/javascript">
+{literal}
+$(function() {	
+    $("#checkall").click(function(){
+        $('.namecheckbox').prop('checked', this.checked);
+    });
+    
+});
+{/literal}
+</script>

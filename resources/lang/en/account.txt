@@ -1,0 +1,115 @@
+
+register = Register
+loginbutton = Sign In
+signin = Sign In
+logout = Log Out
+settings = Settings
+profilebutton = My Account
+
+emaillogin = Email/Login
+emailaddress = Email address
+passwordfc = Password
+forgotpassword = Forget the password 
+keepmelogedin = keep me logged-in
+
+resetinstructions = Please, enter your email in the form below. Use the email that was used during registration of your account
+resetinstructions2 = You will receive instructions on password restoring
+resetpassword = Reset Password
+registeredemail = Registered Email
+sendresetemail = Send Reset Email
+resetpasswordemailwassent = Password Reset Email Was Sent
+resetpasswordforemail = Restore password for account with email %s
+enternewpassword = Please enter new password for your account
+setnewpassword = Set New Password
+newpassword = New Password
+passwordandconfirmationaredifferent = Entered password is not same as confirmation
+resetcodeiswrong = Password reset code is wrong
+passwordwasreset = Password was successfully changed. You can login with your new password now
+
+
+contacthasbeensent= Your message has been sent
+contyourname = Your Name
+contyouremail = Your Email
+contyourphone = Your Phone
+contyourmessage = Your Message
+contsendmessage = Send Message
+contenteryourname = Please enter your name
+contenteryouremail = Please enter your email address
+contenteryourmessage = Please enter a message
+
+
+registration = Account Registration
+enterregistrationdetails = Enter your registration details
+successregistrationinstructions = Your registration was success. We sent confirmation email to check your email address. Click a link in the email to activate the account. If you didn't receive an email then you can resend it. Additionally, you can set new email for your account.
+regname = Your Name
+regemailaddress = Email Address
+regpassword = Password
+regpasswordconfirm = Confirm Password
+registeraccountbutton = Register an account
+
+enteryourname = Enter your name
+enteryouremail = Email Address is required and must be in correct format
+entervalidemail = Email address must have invalid format
+emailnameisused = Email is already registered by different user. Try another one.
+socialemailnameisused = Email address asociated with this social account is already registered in the system. Do you already have an account? Use it to sign in.
+enterpassword = Password is required
+enterpasswordconfirm = You need to enter correct password confirmation
+iagreeonregistration = I Agree to the Terms and Conditions set out by this site, including the site Cookie Use.
+youmustagree = You must agree to the terms and conditions
+subscribeme = Subscribe me to the site newsletter
+
+correcterrors = Please, correct errors and submit again
+alternativeemail = Alternative Email address (optional)
+resendactivation = Resend Activation
+registrationavaiting = Awaiting Activation
+accountactivated = Account was activated
+accountactivatedtext = Your account was successfully activated and now you can login (sign in) to your new account
+thisemailnotfound = The email address not found. Maybe updated already?
+accountnotfound = Email is not found in the users database
+activationcodenotfound = Activation code not found
+activationwasresent = Activation email was resent to %s . Don't forget to check SPAM folder if you can not find it.
+
+loginformtext = Sign In to your account to use features for registered users
+
+emailmissed = Account email missed
+passwordmissed = Pasword missed
+passworddoesntmatch = Password is not correct
+curpassworddoesntmatch = Current Password is not correct
+accountisnotactive = Account is not active
+
+setaccountemail = Set Account Email
+
+yournewemail = Account New Email
+newemailmessagesent = We sent email message to your new email address. Please, click the link in the email to confirm your new email is correct
+emailconfirmationfailedtryagain = Email confirmation failed. Code is wrong or expired. Please, try again.
+
+usernotfound = User not found
+changepassword = Change password
+updateaccountpassword = Update Account Password
+currentpassword = Your current password
+newpassword = New password
+newpasswordconfirm = Repeat new password
+passwordandconfirmdoesntmach = Password and confirmation does not match
+passwordupdated = Password was updated
+changename = Change Name
+namewasupdated = Name was updated
+updateaccountname = Update Account name
+yourname = Your name
+nameisempty = Name can not be empty
+
+logincodeisnotvalid = Login code is not valid
+logincodeexpiredtryagain = Login code expired. Please, repeat login
+
+usesociallogin = Your account was mapped with social login. To login use "Forgot" function to get new password
+whatregistrationgives = 
+
+registrationon = Registration on %s
+registered = Account Created
+passwordforgotn = Password forgotten
+provideemail = Provide Email
+prices = Prices
+
+accountemailneeded = Provide contact email for your account
+accountemailneededinstr = We were not able to get your email address from your social profile. You have to provide an email address manually with the form below
+setaccountemail = Set Account Email
+youremail = Your email

@@ -1,0 +1,80 @@
+
+
+<div class="container" id="searchhome">
+	<h1>{t k="accountstate" g="in" }
+	    <span class="pull-right"><a href="{link c="Subscription"}" class="btn btn-info">{t k="edit"}</a></span></h1>
+	
+	<div class="row">
+	<h2>{t k="subscriptionforplatform" g="in" } </h2>
+	
+	{if $status.platform.enabled}
+	<div class="row">
+	    <div class="col-sm-6">
+	        <div>{t k="howoftentosend" g="subs" } : 
+	        <b>
+	        {if $status.platform.settings.scheduler == 'instant'}{t k="instantmessage" g="subs" }{/if}
+	        {if $status.platform.settings.scheduler == 'daily'}{t k="dailymessage" g="subs" }{/if}
+	        </b>
+	        </div>
+	        <div>{t k="contentstype" g="subs" } :
+	        <b>
+	        {if $status.platform.settings.contents == 'short'}{t k="shortcontents" g="subs" }{/if}
+	        {if $status.platform.settings.contents == 'extended'}{t k="extendedcontents" g="subs" }{/if}
+	        </b>
+	        </div>
+	        
+	     </div>
+	    <div class="col-sm-6">
+	        <ul>
+	        {foreach from=$status.platform.settings.options item=event}
+            <li>{t k=$event g="subs" }
+            {/foreach}
+            </ul>
+	    </div>
+	</div>
+	{else}
+	<p><span class="label label-default">{t k="subscriptionforplatformmissed" g="in" }</span></p>
+	{/if}
+	
+	</div>
+	
+	<div class="row">
+	<h2>{t k="subscriptionforpersons" g="in" }</h2>
+	{if count($status.persons) > 0}
+	{foreach from=$status.persons item=person}
+	<div class="row" style="margin-top:20px;">
+	    <div class="col-sm-6">
+	        <h3>{$person.personname}</h3>
+	        
+	        <div>{t k="howoftentosend" g="subs" } : 
+	        <b>
+	        {if $person.scheduler == 'instant'}{t k="instantmessage" g="subs" }{/if}
+	        {if $person.scheduler == 'daily'}{t k="dailymessage" g="subs" }{/if}
+	        </b>
+	        </div>
+	        <div>{t k="contentstype" g="subs" } :
+	        <b>
+	        {if $person.contents == 'short'}{t k="shortcontents" g="subs" }{/if}
+	        {if $person.contents == 'extended'}{t k="extendedcontents" g="subs" }{/if}
+	        </b>
+	        </div>
+	        
+	     </div>
+	    <div class="col-sm-6">
+	        <ul>
+	        {foreach from=$person.options item=event}
+            <li>{t k=$event g="subs" }
+            {/foreach}
+            </ul>
+	    </div>
+	</div>
+	{/foreach}
+	{else}
+	
+	<p><span class="label label-default">{t k="subscriptionforplatformmissed" g="in" }</span></p>
+	
+	{/if}
+	</div>
+	
+</div>
+

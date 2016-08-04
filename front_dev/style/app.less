@@ -1,0 +1,137 @@
+body {
+
+}
+
+.footer {
+        margin-top:50px;
+}
+
+#loginformdropdown {
+ 	a {
+		padding-top:5px;
+		padding-bottom:5px;
+		margin-top:15px;
+	}
+	a.btn {
+		color: white;
+		text-decoration:none;
+	}
+		
+	
+	li a.btn {
+		padding-top:5px;
+		padding-bottom:5px;
+	}
+	
+	#login-dp{
+            min-width: 270px;
+            padding: 14px 14px 0;
+            overflow:hidden;
+            background-color:rgb(255,255,255);
+                
+            .help-block{
+                font-size:12px    
+            }
+            .bottom{
+                background-color:rgba(255,255,255,.9);
+                border-top:1px solid #ddd;
+                clear:both;
+                padding:14px;
+            }
+            .social-buttons{
+                margin:12px 0    
+            }
+            .form-group {
+                margin-bottom: 10px;
+            }
+            a {
+                text-decoration: underline;
+            }
+            .social-buttons .btn {
+                 color: #fff;
+                 margin:2px;
+                 width:110px;
+                 text-decoration: none;
+                 
+            }
+        }
+        @media(max-width:768px){
+            #login-dp{
+                background-color: inherit;
+                color: #fff;
+            }
+            #login-dp .bottom{
+                background-color: inherit;
+                border-top:0 none;
+            }
+        }
+        
+
+}
+
+@color-facebook: #3b5998;
+@color-twitter: #55acee;
+@color-google: #DD4B39;
+@color-linkedin: #007BB6;
+
+.btn-fb{
+    background-color:@color-facebook;
+    border-color:@color-facebook;
+}
+.font-fb {
+        color:@color-facebook;
+}
+.btn-fb:hover{
+     background-color:darken(@color-facebook, 10%) 
+}
+.btn-tw{
+    background-color:@color-twitter;
+    border-color:@color-twitter;
+}
+.font-tw {
+        color:@color-twitter;
+}
+.btn-tw:hover{
+     background-color:darken(@color-twitter, 10%) 
+}
+.btn-gp{
+    background-color:@color-google;
+     border-color:@color-google;
+}
+.font-gp {
+        color: @color-google;
+}
+.btn-gp:hover{
+    background-color:darken(@color-google, 10%) 
+}
+.btn-ln{
+    background-color:@color-linkedin;
+    border-color:@color-linkedin;
+}
+.font-ln {
+        color: @color-linkedin;
+}
+.btn-ln:hover{
+     background-color:darken(@color-linkedin, 10%) 
+}
+
+.glyphicon.spinning {
+  animation: spin 1s infinite linear;
+  -webkit-animation: spin2 1s infinite linear;
+}
+@keyframes spin {
+  from {
+    transform: scale(1) rotate(0deg);
+  }
+  to {
+    transform: scale(1) rotate(360deg);
+  }
+}
+@-webkit-keyframes spin2 {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}

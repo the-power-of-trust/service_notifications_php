@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+	<contact>
+		<subject>Нове повідомлення контакту</subject>
+		<description>Is sent to admin</description>
+	</contact>
+	<contactusercopy>
+		<subject>Повідомлення отримано</subject>
+		<description>Is sent to a user</description>
+	</contactusercopy>
+	<activate>
+		<subject>Активація нового облікового запису</subject>
+		<description>Is sent to a user on registration new account</description>
+	</activate>
+	<newaccount>
+		<subject>Ваш новий обліковий рахунок створено</subject>
+		<description>Is sent to a user after account created and activated</description>
+	</newaccount>
+	<resetpassword>
+		<subject>Запит на відновлення паролю</subject>
+		<description>when user requests to reset password</description>
+	</resetpassword>
+	<resetpasswordconfirm>
+		<subject>Пароль було змінено</subject>
+		<description>when user requests to reset password</description>
+	</resetpasswordconfirm>
+	<changeemail>
+		<subject>Запит на зміну емейл адреси</subject>
+		<description>when user requests to change email address</description>
+	</changeemail>
+</templates>

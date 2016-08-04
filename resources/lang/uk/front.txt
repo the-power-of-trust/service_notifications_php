@@ -1,0 +1,25 @@
+home = Головна
+contact = Контакт
+about = Про Нас
+faq = Питання
+more = Більше
+
+yourname = Ваше ім’я
+entername = Введіть ім’я
+youremail = Ваш емейл
+enteremail = Введіть емейл
+message = Повідомлення
+contacttext = Будь ласка, використайте форму контакту %s або відправте емейл на <b>%s</b>
+contactsuccess = Повідомлення успішно відправлено
+
+loginorregister = Вхід чи Реєстрація
+loginemail = Емейл Адреса
+password = Пароль
+forgot = Забув
+login = Вхід
+logout = Вийти
+rememberme = Пам’ятати мене
+orquicklogin = Чи швидко ввійти із
+register = Реєстрація
+
+welcome = Вітаємо, %s

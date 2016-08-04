@@ -1,0 +1,18 @@
+accountstate = Ваша підписка
+profile = Профіль
+accountdashboard = Керування профілем
+userlogininformation = Вхід та ім`я
+subscriptionforplatform = Підписка на системні події платформи
+subscriptionforplatformmissed = Не підписано
+subscriptionforpersons = Події, які стосуються персон
+subscribeforsystem = Підписатися
+subscribeforsystemevents = Підписка на системні події
+subscribtionevents = Виберіть події для підписки
+notificationtype = Формат повідомлень
+howoftentosend = Як часто інформувати
+contentstype = Тип звіту
+instantmessage = Повідомляти одразу (не частіше години)
+dailymessage = Щоденний звіт
+shortcontents = Короткий звіт
+extendedcontents = Розширений звіт
+

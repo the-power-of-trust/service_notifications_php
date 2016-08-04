@@ -1,0 +1,102 @@
+
+register = Реєстрація
+loginbutton = Вхід
+signin = Реєстрація
+logout = Вихід
+settings = Налагтування
+profilebutton = Мй профіль
+
+emaillogin = Емейл Адреса
+emailaddress = Емейл Адреса
+passwordfc = Пароль
+forgotpassword = Забув пароль
+keepmelogedin = залишатися в системі
+
+resetinstructions = Будь ласка, введіть свою електронну адресу в форму нижче. Використовуйте електронну пошту, яка була використана при реєстрації вашого облікового запису
+resetinstructions2 = Ви отримаєте інструкції про відновлення пароля
+resetpassword = Поміняти пароль
+registeredemail = Зареєстрований E-mail
+sendresetemail = Відправити e-mail для відновлення пароля
+resetpasswordemailwassent = Емейл для відновлення пароля був відправлений
+resetpasswordforemail = Відновити пароль для облікового запису з емейл %s
+enternewpassword = Будь ласка, введіть новий пароль для вашого облікового запису
+setnewpassword = Встановити новий пароль
+newpassword = новий пароль
+passwordandconfirmationaredifferent = Введений пароль не збігається з підтвердженням
+resetcodeiswrong = Код скидання пароля невірний
+passwordwasreset = Пароль був успішно змінений. Ви можете увійти в систему з новим паролем прямо зараз
+
+contacthasbeensent = Ваше повідомлення відправлене
+contyourname = Ваше ім'я
+contyouremail = Ваша електронна адреса
+contyourphone = Ваш телефон
+contyourmessage = Ваше повідомлення
+contsendmessage = Відправити повідомлення
+contenteryourname = Будь ласка, введіть ваше ім'я
+contenteryouremail = Будь ласка, введіть Вашу адресу електронної пошти
+contenteryourmessage = Будь ласка, введіть повідомлення
+
+registration = Реєстрація акаунта
+enterregistrationdetails = Введіть реєстраційні дані
+successregistrationinstructions = Ваша реєстрація була успішною. Ми відправили лист з підтвердженням, щоб перевірити свою адресу електронної пошти. Натисніть на посилання в листі, щоб активувати обліковий запис. Якщо ви не отримали листа, то ви можете повторно відправити його. Крім того, ви можете встановити нову адресу електронної пошти для вашого облікового запису.
+regname = Ваше ім'я
+regemailaddress = Адреса електронної пошти
+regpassword = Пароль
+regpasswordconfirm = Підтвердження пароля
+registeraccount = Зареєструвати акаунт, щоб почати використовувати інструменти пошуку студентів.
+registeraccountbutton = Зареєструвати акаунт
+
+enteryourname = Введіть ім'я
+enteryouremail = Адреса електронної пошти обов’язкова, і мусить бути в правильному форматі
+entervalidemail = Адреса електронної пошти має невірний формат
+emailnameisused = E-mail вже використовується в іншому акаунті. Спробуйте іншу.
+socialemailnameisused = Адреса електронної пошти вказана в цьому акаунті соціальної мережі вже зареєстрована в системі. У Вас вже є обліковий запис? Використовуйте його для входу в систему.
+enterpassword = Пароль обовязковий
+enterpasswordconfirm = Ви повинні ввести правильний пароль підтвердження
+iagreeonregistration = Я згоден з Умовами, встановленими на даному сайті, в тому числі використання Cookie на сайті.
+youmustagree = Ви повинні погодитися з умовами
+subscribeme = Підписати мене на новини сайту
+correcterrors = Будь ласка, виправте помилки та спробуйте ще раз
+alternativeemail = Альтернативна адреса електронної пошти (за бажанням)
+
+
+resendactivation = Активувати знову
+registrationavaiting = Очікування активації
+accountactivated = Ваш обліковий рахунок активовано. Ви можете почати використовувати його в повній мірі
+accountactivatedtext = Ваш обліковий запис була успішно активовано, і тепер ви можете увійти в систему (Вхід) до нового облікового запису
+thisemailnotfound = Адресу електронної пошти не знайдено.
+accountnotfound = E-mail не знайдено в базі даних користувачів
+activationcodenotfound = Код активації не знайдено
+activationwasresent = Лист активації було відправлено на емейл %s. Не забудьте перевірити папку зі спамом, якщо ви не можете знайти його.
+loginformtext = Увійдіть до свого облікового запису, щоб використовувати можливості для зареєстрованих користувачів
+emailmissed = Електронну адресу акаунта пропущено
+passwordmissed = Пароль не вказано
+passworddoesntmatch = Пароль невірний
+curpassworddoesntmatch = Поточний пароль не є правильним
+accountisnotactive = Рахунок не активний
+setaccountemail = Встановити E-Mail акаунта
+yournewemail = Новий E-mail акаунта
+
+changeemail = Змінити емейл
+newemailmessagesent = Ми відправили повідомлення по електронній пошті на ваш новий адреса електронної пошти. Будь ласка, натисніть на посилання в листі, щоб підтвердити ваш новий адреса електронної пошти є правильним
+emailconfirmationfailedtryagain = Підтвердження по електронній пошті не вдалася. Код є неправильним або закінчився. Будь ласка спробуйте ще раз.
+usernotfound = Користувач не знайдений
+changepassword = Зміна пароля
+updateaccountpassword = Змінити пароль
+currentpassword = Ваш поточний пароль
+newpasswordconfirm = Повторіть новий пароль
+passwordandconfirmdoesntmach = Пароль і підтвердження не збігаються
+passwordupdated = Пароль був оновлений
+changename = Змінити ім'я
+namewasupdated = Ім'я було оновлено
+updateaccountname = Змінити Ім'я облікового запису
+yourname = Ваше ім'я
+nameisempty = Ім'я мусить бути вказано
+logincodeisnotvalid = Код входу недійсний
+logincodeexpiredtryagain = Код входу застарілий. Повторіть вхід
+usesociallogin = Ваш акаунт був інтегрований з соціальним логіном. Для входу в систему використайте функцію "Забув пароль", щоб отримати новий пароль
+whatregistrationgives = *
+registrationon = Реєстрація на %s
+registered = Обліковий запис створено
+passwordforgotn = Забув пароль
+provideemail = Вкажіть Email

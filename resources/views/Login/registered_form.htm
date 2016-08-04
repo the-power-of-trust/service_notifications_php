@@ -1,0 +1,21 @@
+	<div class="row">
+         {t k='successregistrationinstructions' g='account'}
+         </div>
+         
+         <div class="row" style="margin-top:30px;">
+         <form role="form" method="GET" id="registredform" action="{link do="activationresend" controller="Login"}">
+         	<input type="hidden" name="email" value="{$registeredemail}" id="newregisteredemail">
+         		<div class="row">
+				<div class="col-md-6 col-md-offset-2">
+					<div class="form-group">
+						<input type="email" name="newemail" class="form-control" 
+							placeholder="{t k='alternativeemail'  g='account'}" tabindex="2">
+					</div>
+				</div>
+			</div>
+         		<div class="row" >
+				<div class="col-md-6 col-md-offset-2"><input type="submit" value="{t k='resendactivation'  g='account'}" class="btn btn-primary btn-block btn-lg" ></div>
+			</div>
+         </form>
+         </div>
+

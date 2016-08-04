@@ -1,0 +1,39 @@
+
+subscriptionforplatform = Підписка на системні події платформи
+subscriptionforplatformmissed = Не підписано
+subscriptionforpersons = Події, які стосуються персон
+subscribeforsystem = Підписатися
+subscribeforsystemevents = Підписка на системні події
+subscribtionevents = Виберіть події для підписки
+notificationtype = Формат повідомлень
+howoftentosend = Як часто інформувати
+contentstype = Тип звіту
+instantmessage = Повідомляти одразу (не частіше години)
+dailymessage = Щоденний звіт
+shortcontents = Короткий звіт
+extendedcontents = Розширений звіт
+
+chatsay = Повідомлення в чаті
+taskcreate = Створено задачу
+taskcomment = Коментар до задачі
+taskcommentresponse = Відповідь на коментар
+
+subscriptionupdated  = Підписку оновлено
+unknownscheduler = Невідомий тип частоти підписки
+unknowncontents = Невідомий формат повідомлень
+noeventsselected = Не вибрано жодного типу повідомлень
+editsubscription = Редагувати підписку
+addperson = Додати персону
+subscribeforsystem = Підписатися
+subscribeforperson = Підписатися на персону
+removesubscription = Видалити підписку
+areyousure = Ви впевнені?
+
+subscribeforpersonevents = Підписка на події пов’язані із персоною
+person = Персона
+find = Знайти
+foundperson = Знайдено персону
+personnotfound = Персону не знайдено
+personnotselected = Персону не обрано
+savepersonsubscription = Зберегти підписку
+

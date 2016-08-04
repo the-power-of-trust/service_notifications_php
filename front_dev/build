@@ -1,0 +1,13 @@
+#!/bin/bash
+cd "$(dirname "$0")"
+   
+lessc style/app.less > ../public/css/app.css
+
+cp ../src/vendor/twbs/bootstrap/dist/css/bootstrap.min.css ../public/components/bootstrap/css/
+cp ../src/vendor/twbs/bootstrap/dist/fonts/* ../public/components/bootstrap/fonts/
+cp ../src/vendor/twbs/bootstrap/dist/js/bootstrap.min.js ../public/components/bootstrap/js/
+
+cp ../src/vendor/components/jquery/jquery.min.js ../public/components/jquery/
+
+cp ../src/vendor/components/font-awesome/css/font-awesome.min.css ../public/components/font-awesome/css/
+cp ../src/vendor/components/font-awesome/fonts/* ../public/components/font-awesome/fonts/

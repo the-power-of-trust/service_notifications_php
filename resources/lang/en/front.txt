@@ -1,0 +1,24 @@
+home = Home
+contact = Contact
+about = About
+faq = FAQ
+more = More
+
+yourname = Your Name
+entername = Enter Name
+youremail = Your Email
+enteremail = Enter Email
+message = Message
+contacttext = Please, use form below to contact %s or send email to <b>%s</b>
+
+loginorregister = Login Or Register
+loginemail = Email Address
+password = Password
+forgot = Forgot
+login = Login
+logout = Log Out
+rememberme = Remember Me
+orquicklogin = Or Quick Login with
+register = Register
+
+welcome = Welcome, %s

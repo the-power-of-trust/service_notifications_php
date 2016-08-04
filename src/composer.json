@@ -1,0 +1,16 @@
+{
+    "require": {
+        "smarty/smarty":"3.*",
+        "openlss/lib-array2xml":"*",
+		"twbs/bootstrap":"3.*",
+		"components/jquery":"1.12.*",
+		"components/font-awesome":"*",
+		"phpmailer/phpmailer":"5.*",
+		"egulias/email-validator":"1.*",
+		"html2text/html2text":"2.*",
+		"gelembjuk/webapp":"1.*",
+        "behat/transliterator":"*"
+    },
+    "require-dev": {
+    }
+}

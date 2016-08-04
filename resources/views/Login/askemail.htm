@@ -1,0 +1,33 @@
+﻿<link href="/template/style/css/app_notoften.css" rel="stylesheet">
+<section >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">{t k='accountemailneeded' g='account'}</h2>
+                </div>
+            </div> 
+            <div class="row">
+                
+            	<div class="col-lg-6 col-lg-offset-3 text-center">
+			<h3 class="section-subheading">{t k='accountemailneededinstr' g="account"}</h3>
+			
+			<form role="form" method="GET" id="askemail" action="{link do="Setaccemail" controller="Login"}">
+			 	
+			
+			<div class="row">
+				<div class="col-md-6 col-md-offset-2">
+					<div class="form-group">
+						<input type="email" name="email" class="form-control" 
+							placeholder="{t k='youremail' g='account'}" required>
+					</div>
+				</div>
+			</div>
+         		<div class="row" >
+				<div class="col-md-6 col-md-offset-2"><input type="submit" value="{t k='setaccountemail' g='account' }" class="btn btn-primary btn-block btn-lg" ></div>
+			</div>
+			</form>
+			
+		</div>
+            </div> 
+	</div>
+</section>

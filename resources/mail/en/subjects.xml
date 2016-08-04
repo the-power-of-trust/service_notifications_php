@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+	<contact>
+		<subject>New Contact Message</subject>
+		<description>Is sent to admin</description>
+	</contact>
+	<contactusercopy>
+		<subject>Contact Message Received</subject>
+		<description>Is sent to a user</description>
+	</contactusercopy>
+	<activate>
+		<subject>New Account Activation</subject>
+		<description>Is sent to a user on registration new account</description>
+	</activate>
+	<newaccount>
+		<subject>Your new account created</subject>
+		<description>Is sent to a user after account created and activated</description>
+	</newaccount>
+	<resetpassword>
+		<subject>Password Reset Request</subject>
+		<description>when user requests to reset password</description>
+	</resetpassword>
+	<resetpasswordconfirm>
+		<subject>Your Password was Reset</subject>
+		<description>when user requests to reset password</description>
+	</resetpasswordconfirm>
+	<changeemail>
+		<subject>Email change request. Action required</subject>
+		<description>when user requests to change email address</description>
+	</changeemail>
+	<newmessage>
+		<subject>New contact message on {t k='sitename'}</subject>
+		<description>when user receives new contact message</description>
+	</newmessage>
+	
+</templates>
