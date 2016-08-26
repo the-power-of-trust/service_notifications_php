@@ -29,5 +29,7 @@ class Subscription extends Mongo {
             'personid' => $personid]
             );
     }
-    
+    public function getAllDailyPersonSubscriptions() 
+    {
+    }
 }

@@ -117,7 +117,7 @@ class Login extends \Gelembjuk\WebApp\Model {
         unset($_SESSION['userid']);
         $this->application->setUserID(0);
         
-        setcookie('remembermecode','',time()+$this->remembermecodetime);
+        setcookie('remembermecode','',time()+$this->remembermecodetime,'/');
     }
     
     public function getSocialLoginStartUrl($network,$referrer = '') 

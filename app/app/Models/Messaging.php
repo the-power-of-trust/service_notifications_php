@@ -166,4 +166,9 @@ class Messaging extends \Gelembjuk\WebApp\Model {
         
         return true;
     }
+    
+    public function sendPreparedSubsriptionEmails($limit = 0, $timelimit = 0)
+    {
+        return array();
+    }
 }

@@ -34,12 +34,10 @@ class Cron extends DefaultController {
 	protected function doExecute() {
 		$this->mustBeCommandLine();
 		
-		
 		return array('success','/');
 	}
 	
 	protected function doHourly() {
-		//$this->mustBeCommandLine();
 		
 		$logs = $this->defmodel->hourly();
 		
@@ -49,9 +47,19 @@ class Cron extends DefaultController {
 	}
 	
 	protected function doDaily() {
-        //$this->mustBeCommandLine();
         
         $logs = $this->defmodel->daily();
+        
+        $this->addViewerData("logs",$logs);
+        
+        return array('success','/');
+    }
+    /**
+    * Sendall prepared emails
+    */
+    protected function doSend() {
+                
+        $logs = $this->defmodel->sendPreparedEmails();
         
         $this->addViewerData("logs",$logs);
         

@@ -91,7 +91,7 @@ class DefaultRouter extends \Gelembjuk\WebApp\Router {
 		
 	}
 	
-	protected function setUpActionInfo() {
+	public function setUpActionInfo() {
 		if ($this->getInput('view') != '') {
 			$this->actiontype = 'view';
 			$this->actionmethod = $this->getInput('view','alpha');
