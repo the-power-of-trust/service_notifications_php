@@ -2,7 +2,7 @@
 /**
  * User account read functions
  */
-namespace app\Database;
+namespace app\Engines\Database;
 
 class MongoEngine implements \Gelembjuk\DB\EngineInterface {
 	use \Gelembjuk\Logger\ApplicationLogger;
