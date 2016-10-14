@@ -9,7 +9,7 @@ class Login extends User {
         return $this->findOne("users",['email' => $email]);
     }
     
-    public function addUser($logintype,$active,$name,$email,$passwordhash, $externalid = '')
+    public function addUser($logintype,$active,$name,$email,$passwordhash, $externalid = '', $localid = 0)
     {
         $active = ($active === true || $active === '1' || $active === 1 || $active === 'y' || $active === 'yes')?'1':'0';
         
@@ -17,8 +17,14 @@ class Login extends User {
             $externalid = '';
         }
         
+        $localid = (int) $localid;
+        
+        if ($localid == 0) {
+            $localid = (int) $this->getNextID("users");
+        }
+        
         $userdocument = [
-            'id' => (int) $this->getNextID("users"),
+            'id' => $localid,
             'name' => $name,
             'email' => $email,
             'password' => $passwordhash,

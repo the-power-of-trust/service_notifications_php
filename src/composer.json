@@ -10,7 +10,8 @@
 		"html2text/html2text":"2.*",
 		"gelembjuk/webapp":"1.*",
         "behat/transliterator":"*",
-	"jsonrpc/jsonrpc": "1.0.*"
+        "jsonrpc/jsonrpc": "1.0.*",
+        "mongodb/mongodb": "^1.0.0"
     },
     "require-dev": {
         "phpunit/phpunit": "5.5.*"
