@@ -37,7 +37,7 @@ class Login extends User {
        
         $this->logQ($userdocument,'userdb|registration');
         
-        $this->Coll('users')->insert($userdocument);
+        $this->Coll('users')->insertOne($userdocument);
         
         return $userdocument['id'];
     }
@@ -46,7 +46,7 @@ class Login extends User {
     {
         $active = ($active === true || $active === '1' || $active === 1 || $active === 'y' || $active === 'yes')?'1':'0';
         
-        $this->Coll('users')->update(
+        $this->Coll('users')->updateOne(
             ['id' => (int) $userid], 
             ['$set'=> ["active"=>$active]]
         );
@@ -66,7 +66,7 @@ class Login extends User {
     
     public function updateUserPassword($userid,$passwordhash) 
     {
-        $this->Coll('users')->update(
+        $this->Coll('users')->updateOne(
             ['id' => (int) $userid], 
             ['$set'=> ["password" => $passwordhash]]
         );
@@ -75,7 +75,7 @@ class Login extends User {
     
     public function updateUserLoginType($userid,$type) 
     {
-        $this->Coll('users')->update(
+        $this->Coll('users')->updateOne(
             ['id' => (int) $userid], 
             ['$set'=> ["logintype" => $type]]
         );

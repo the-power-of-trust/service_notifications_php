@@ -2,7 +2,7 @@
 /**
  * User account read functions
  */
-namespace app\Engines\Database;
+namespace app\Database;
 
 class MongoEngine implements \Gelembjuk\DB\EngineInterface {
 	use \Gelembjuk\Logger\ApplicationLogger;
@@ -56,16 +56,16 @@ class MongoEngine implements \Gelembjuk\DB\EngineInterface {
 	{
 	    $collection = $this->getConnection()->seq;
 	    
-	    $retval = $collection->findAndModify(
+	    $retval = $collection->findOneAndUpdate(
 	        array('_id' => $name),
-	        array('$inc' => array("seq" => 1)),
-	        null,
+	        array('$inc' => array("seq" => 2)),
 	        array(
 	            "new" => true,
 	            "upsert" => true,
 	        )
 	    );
-	    return $retval['seq'];
+	    
+	    return $retval->seq;
 	}
 	
 	protected function profilerAction($type,$time,$string) {
@@ -92,31 +92,37 @@ class MongoEngine implements \Gelembjuk\DB\EngineInterface {
 		$att=0;
 		
 		$connstring = "mongodb://$this->dbhost";
-		
-		$options = array();
-		
-		if ($this->dbuser != '') {
-		    $options = ["username" => $this->dbuser, "password" => $this->dbpassword];
-		}
-		
-		$mongolient = null;
-		
-		do {
-			// hide errors. 
-			$mongolient = new \MongoClient($connstring,$options);
-			$att++;
+		        /*
+        $options = array();
+        
+        if ($this->dbuser != '') {
+            $options = ["username" => $this->dbuser, "password" => $this->dbpassword];
+        }
+        */
+        
+        $mongolient = null;
+        
+        do {
+            // hide errors. 
+            $mongolient = new \MongoDB\Client($connstring);
+            $att++;
 
-			if (!$mongolient && $att<4) {
-				sleep(1);	// try again in 1 sec
-			}
+            if (!$mongolient && $att<4) {
+                sleep(1);   // try again in 1 sec
+            }
 
-		} while (!$mongolient && $att<4);
-		
-		$this->connection = $mongolient->{$this->dbname};
-		
-		if (!$this->connection) {
-			throw new Exceptions\DBException('Can not connect to the DB server: ','','connection',1);
-		}
+        } while (!$mongolient && $att<4);
+        
+        if (!$mongolient) {
+            throw new Exceptions\DBException('Can not connect to the DB server: ','','connection',1);
+        }
+        
+        // this is database object
+        $this->connection = $mongolient->{$this->dbname};
+        
+        if (!$this->connection) {
+            throw new Exceptions\DBException('Can not connect to the DB server: ','','connection',1);
+        }
 		
 		$conntime = microtime(true) - $connstart;
 		

@@ -14,7 +14,7 @@ class Mansubscription extends Subscription {
             );
         
         if ($item) {
-            $this->Coll('subscription')->update(
+            $this->Coll('subscription')->updateOne(
                 ['userid' => (int) $userid, 'personid' => $personid], 
                 ['$set'=> 
                     ["scheduler" => $scheduler,
@@ -37,13 +37,13 @@ class Mansubscription extends Subscription {
             $insertdata['personname'] = $personname;
         }
         
-        $this->Coll('subscription')->insert($insertdata);
+        $this->Coll('subscription')->insertOne($insertdata);
         return true;
     }
     
     public function removeSubscription($userid, $personid)
     {
-        $this->Coll('subscription')->remove(
+        $this->Coll('subscription')->deleteOne(
                 ['userid' => (int) $userid, 'personid' => $personid],
                 ["justOne" => true]
             );

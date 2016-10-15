@@ -9,7 +9,7 @@ class Profile extends User {
     
     public function setSubscription($userid,$subscription) 
     {
-        $this->Coll('users')->update(
+        $this->Coll('users')->updateOne(
             ['id' => (int) $userid], 
             ['$set'=> ["subscription" => ($subscription)?'y':'n']]
         );
@@ -18,7 +18,7 @@ class Profile extends User {
     
     public function updateUserEmail($userid,$email) 
     {
-        $this->Coll('users')->update(
+        $this->Coll('users')->updateOne(
             ['id' => (int) $userid], 
             ['$set'=> ["email" => $email]]
         );
@@ -27,7 +27,7 @@ class Profile extends User {
     
     public function updateUserName($userid,$name) 
     {
-        $this->Coll('users')->update(
+        $this->Coll('users')->updateOne(
             ['id' => (int) $userid], 
             ['$set'=> ["name" => $name]]
         );

@@ -1,6 +1,10 @@
 <?php
 
+$_SERVER['DOCUMENT_ROOT'] = dirname(__FILE__).'/../../public';
+
 $application = require_once('../../app/init.inc.php');
+
+
 
 $logindb = $application->getDBO('Login');
 
@@ -18,3 +22,5 @@ if (!$user_rec) {
 }
 
 echo "Success\n";
+
+echo $application->getOption('webroot')."\n";
