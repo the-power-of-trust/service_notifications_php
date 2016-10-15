@@ -1,5 +1,9 @@
 <?php
 
+/**
+* Test new mongodb driver
+*/
+
 $_SERVER['DOCUMENT_ROOT'] = dirname(__FILE__).'/../../public';
 
 $application = require_once('../../app/init.inc.php');
@@ -19,7 +23,7 @@ class Test extends app\Database\Mongo {
     }
     public function getNext() 
     {
-        return (int) $this->getNextID("users");
+        return (int) $this->getNextID("users",2);
     }
 }
 

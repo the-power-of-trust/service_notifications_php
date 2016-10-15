@@ -19,9 +19,9 @@ class Mongo extends \Gelembjuk\DB\Base {
         return $this->dbobject->getMongoCollection($this->table($collection));
     }
     
-    protected function getNextID($name)
+    protected function getNextID($name, $initialvalue = 1)
     {
-        return $this->dbobject->getNextSequence($name);
+        return $this->dbobject->getNextSequence($name, $initialvalue);
     }
     
     protected function cleanRecord($item)

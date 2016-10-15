@@ -52,16 +52,32 @@ class MongoEngine implements \Gelembjuk\DB\EngineInterface {
 	    return $this->getConnection()->$collection;
 	}
 	
-	public function getNextSequence($name)
+	public function getNextSequence($name, $initialvalue = 1)
 	{
 	    $collection = $this->getConnection()->seq;
 	    
+	    if ($initialvalue > 1) {
+            // check if there is some value and if it is more this value 
+            $existent = $collection->findOne(['_id' => $name]);
+            
+            if (!$existent) {
+                $collection->insertOne(['_id' => $name, 'seq' => $initialvalue]);
+                
+                return $initialvalue;
+            }
+            
+            if ($existent->seq < $initialvalue) {
+                $collection->updateOne(['_id' => $name], ['$set'=> ['seq' => $initialvalue]]);
+            }
+	    }
+	    
 	    $retval = $collection->findOneAndUpdate(
 	        array('_id' => $name),
-	        array('$inc' => array("seq" => 2)),
+	        array('$inc' => array("seq" => 1)),
 	        array(
 	            "new" => true,
 	            "upsert" => true,
+	            'returnDocument' => \MongoDB\Operation\FindOneAndUpdate::RETURN_DOCUMENT_AFTER
 	        )
 	    );
 	    

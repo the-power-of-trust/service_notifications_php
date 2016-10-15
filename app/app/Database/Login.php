@@ -20,7 +20,7 @@ class Login extends User {
         $localid = (int) $localid;
         
         if ($localid == 0) {
-            $localid = (int) $this->getNextID("users");
+            $localid = (int) $this->getNextID("users", 2/*initial value because 1 is for admin*/);
         }
         
         $userdocument = [
