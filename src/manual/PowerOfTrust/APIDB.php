@@ -13,6 +13,8 @@ class APIDB extends API{
     protected $connectioncreatetime = 0;
     protected $connectiontimelimit = 0;
     
+    protected $namescache = [];
+    
     protected function getConnection()
     {
         if ($this->connection !== NULL) {
@@ -82,6 +84,24 @@ class APIDB extends API{
         return $conn->selectCollection($collection);
     }
     
+    public function getPersonNameById($uid)
+    {
+        if (!empty($this->namescache[$uid])) {
+            return $this->namescache[$uid];
+        }
+        
+        $coll = $this->getColl('Persons');
+        
+        $person = $coll->findOne(['_id' => $uid]);
+        
+        if ($person) {
+            $this->namescache[$uid] = $person->name.' '.$person->surname;
+            return $this->namescache[$uid];
+        }
+        
+        return '';
+    }
+    
     public function testConnection()
     {
         try {
@@ -114,6 +134,37 @@ class APIDB extends API{
         return null;
     }
     
+    /**
+    * Chat says
+    */
+    public function getChatSays(Period $period)
+    {
+        $coll = $this->getColl('PublicLog');
+        
+        $list = $coll->find(['data._action' => 'chat_say', 'data._at' => ['$gte' => $period->getFromTime(), '$lte' => $period->getToTime()]]);
+        
+        $result = [];
+        
+        foreach($list->toArray() as $o) {
+                $result[] = ['text' => $o->data->msg, 'time' => date('r', $o->data->_at), 'user' => $this->getPersonNameById($o->data->_uid)];
+        }
+        return $result;
+    }
+    public function getChatSaysCount(Period $period)
+    {
+        $list = $this->getChatSays($period);
+        
+        return count($list);
+    }
     
+    /**
+    * Persons
+    */
+    public function getNewPersons(Period $period)
+    {
+    }
+    public function getNewPersonsCount(Period $period)
+    {
+    }
 }
  

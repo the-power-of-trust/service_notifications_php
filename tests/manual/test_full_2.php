@@ -32,3 +32,23 @@ if (!$person_id) {
 } else {
     echo "Success: Find person: Existent: $person_id \n";
 }
+
+$testperiod = new \PowerOfTrust\Period(1451374688, 1458382307);
+
+$expectedcount = 12;
+
+$chatsays = $api->getChatSays($testperiod);
+
+if (count($chatsays) == $expectedcount) {
+    echo "Success: Chat says for period \n";
+} else {
+    echo "FAIL: Chat says for period. Got ".count($chatsays)." records \n";
+}
+
+$chatsayscount = $api->getChatSaysCount($testperiod);
+
+if ($chatsayscount == $expectedcount) {
+    echo "Success: Chat says count for period \n";
+} else {
+    echo "FAIL: Chat says count for period. Got ".$chatsayscount." records \n";
+}
