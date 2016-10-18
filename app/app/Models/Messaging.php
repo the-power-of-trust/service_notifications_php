@@ -7,7 +7,8 @@ class Messaging extends \Gelembjuk\WebApp\Model {
     protected $templatesextension;
     protected $pagesfirectory;
     
-    protected function sendEmail($template,$data,$email,$from='',$replyto='',$ccemail='',$bccemail='',$textemail = false,$locale = '') {
+    protected function sendEmail($template,$data,$email,$from='',$replyto='',$ccemail='',$bccemail='',$textemail = false,$locale = '',
+		$onlybuildemail = false) {
         // prepare template
         if ($locale == '') {
             $locale = $this->application->getLocale();
@@ -73,27 +74,23 @@ class Messaging extends \Gelembjuk\WebApp\Model {
             
             $templatedata = $formatter->fetchTemplate($template,$data,$outtemplate);
             
-            // make email sending object
-            switch ($this->application->getConfig('mailerclass')) {
-                case 'phpmailer':
-                    $mailer = new \Gelembjuk\Mail\PHPMailer();
-                    break;
-                case 'phpnative':
-                case 'mail':
-                    $mailer = new \Gelembjuk\Mail\PHPNative();
-                    break;
-                default:
-                    $mailer = new \Gelembjuk\Mail\NullMail();
-            }
             
-            $maileroptions = $this->application->getConfig('mailersettings');
-            $maileroptions['logger'] = $this->application->getLogger();
-            $maileroptions['application'] = $this->application;
-             
-            $mailer->initMailer($maileroptions);
-            
-            $mailer->sendEmail($email,$templatedata['subject'],$templatedata['body'],
-                $from,$replyto,$ccemail,$bccemail,$textemail);
+			
+			if ($onlybuildemail) {
+				return [
+					'email' => $email,
+					'subject' => $templatedata['subject'],
+					'body' => $templatedata['body'],
+					'from' => $from,
+					'replyto' => $replyto,
+					'ccemail' => $ccemail,
+					'bccemail' => $bccemail,
+					'textemail' => $textemail
+				];
+			}
+			
+            $this->sendPreparedEmail($email,$templatedata['subject'],$templatedata['body'],
+				$from,$replyto,$ccemail,$bccemail,$textemail);
             
         } catch (\Exception $exception) {
             $this->logQ('Format Email error '.$exception->getMessage(),'sendemail|error');
@@ -102,6 +99,53 @@ class Messaging extends \Gelembjuk\WebApp\Model {
         
         return true;
     }
+    protected function sendPreparedEmail($email,$subject,$body,
+			$from,$replyto,$ccemail,$bccemail,$textemail)
+    {
+		// make email sending object
+		switch ($this->application->getConfig('mailerclass')) {
+			case 'phpmailer':
+				$mailer = new \Gelembjuk\Mail\PHPMailer();
+				break;
+			case 'phpnative':
+			case 'mail':
+				$mailer = new \Gelembjuk\Mail\PHPNative();
+				break;
+			default:
+				$mailer = new \Gelembjuk\Mail\NullMail();
+		}
+		
+		$maileroptions = $this->application->getConfig('mailersettings');
+		$maileroptions['logger'] = $this->application->getLogger();
+		$maileroptions['application'] = $this->application;
+		
+		$mailer->initMailer($maileroptions);
+            
+		$mailer->sendEmail($email,$templatedata['subject'],$templatedata['body'],
+			$from,$replyto,$ccemail,$bccemail,$textemail);
+			
+		return true;
+    }
+    public function makeNotificationEmail($userid,$info,$scheduler)
+    {
+    
+		$template = (($scheduler == 'daily')?'daily':'hourly').'notification';
+		
+		$this->debug('email to '.$userid.' of format '.$format.' scheduled '.$scheduler);
+        $this->debug($info);
+        
+        $logindb = $this->application->getDBO('Login');
+        
+        $user_rec = $logindb->getUser($userid);
+        
+        $data = [];
+        
+        $data['user_rec'] = $user_rec;
+        $data['info'] = $info;
+        
+		return $this->sendEmail($template,$data,$user_rec['email'],'noreply','','','',false,'',true);
+    }
+    
     public function sendContactMessage($name,$email,$phone,$message) {
         $data = array(
             'name' => $name,
@@ -169,6 +213,18 @@ class Messaging extends \Gelembjuk\WebApp\Model {
     
     public function sendPreparedSubsriptionEmails($limit = 0, $timelimit = 0)
     {
-        return array();
+        $notdb = $this->application->getDBO('Notification');
+		
+		$starttime = time();
+		
+		$logs = [];
+		
+		do {
+			$email = $notdb->getPreparedNotification();
+			
+			
+		} while( time() - $starttime < $maxececutiontime );
+		
+		return $logs;
     }
 }

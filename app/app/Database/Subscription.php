@@ -29,6 +29,20 @@ class Subscription extends Mongo {
             'personid' => $personid]
             );
     }
+    public function getAllUsersSubscribedForSystem($scheduler) 
+    {
+		$items = $this->find('subscription',
+            ['personid' => 'system', "scheduler" => $scheduler]
+            );
+            
+		$result = [];
+		
+		foreach ($items as $o) {
+			$result[] = ['userid' => $o->userid, 'format' => $o->contents, 'subscription' => $o->options];
+		}
+		
+		return $result;
+    }
     public function getAllPersonsSubscribedForSystem($scheduler) 
     {
 		$items = $this->find('subscription',
@@ -39,6 +53,23 @@ class Subscription extends Mongo {
 		
 		foreach ($items as $o) {
 			$result[] = ['userid' => $o->userid, 'format' => $o->contents, 'subscription' => $o->options];
+		}
+		
+		return $result;
+    }
+    public function getAllUsersSubscribedForPersons($scheduler)
+    {
+		$items = $this->find('subscription',
+            ['personid' => ['$ne' => 'system'], "scheduler" => $scheduler]
+            );
+            
+		$result = [];
+		
+		foreach ($items as $o) {
+			if (empty($result[$o->userid])) {
+				$result[$o->userid] = [];
+			}
+			$result[$o->userid][$o->personid] = ['format' => $o->contents, 'subscription' => $o->options];
 		}
 		
 		return $result;

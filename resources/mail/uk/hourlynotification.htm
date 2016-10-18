@@ -1,0 +1,45 @@
+<p>Вітаємо, {$user_rec.name}!</p>
+
+<p>Повідомлення про події в мережі "Сила довіри", згідно вашої підписки.</p>
+
+{foreach from=$info key=personid item=pinfo}
+
+<h2>{$pinfo.persontitle}</h2>
+
+{if $pinfo.format == 'short'}
+	{foreach from=$pinfo.events key=eventname item=count}
+	
+	<h3>{t k=$eventname g=subs} - {$count}</h3>
+	
+	{/foreach}
+{else}
+	{foreach from=$pinfo.events key=eventname item=events}
+	
+	<h3>{t k=$eventname g=subs}</h3>
+	<ul>
+	{foreach from=$events item=e}
+		<li>
+		{if $eventname=='chatsay'}
+			{$e.text} <i>{$e.time}</i>, <u>{$e.user}</u>
+		{elseif $eventname=='taskcreate'}
+			{$e.title} <i>{$e.time}</i>, <u>{$e.user}</u>
+		{elseif $eventname=='persons'}
+			{$e.name} 
+		{elseif $eventname=='taskcomments' || $eventname=='taskcomment'}
+			{$e.task} <i>{$e.time}</i>, <u>{$e.user}</u><br>
+			<span>{$e.comment}</span><br>
+			{$e.taskid}
+		{elseif $eventname=='taskcommentresponse'}
+		{/if}
+		</li>
+	{/foreach}
+	</ul>
+	{/foreach}
+long
+{/if}
+
+{/foreach}
+
+<p>Редагувати свою підписку ви можете на сайті 
+	<a href="{$baseurl}" target="_blank"  title="{$branding.sitename}" >
+    {$branding.sitename}</a>. Припинити всі підписки прямо <a href="{$stopsubscriptionurl}">зараз</a></p>

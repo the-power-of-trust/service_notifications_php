@@ -18,6 +18,11 @@ taskcreate = Створено задачу
 taskcomment = Коментар до задачі
 taskcommentresponse = Відповідь на коментар
 
+chatsaycount = Повідомлень у чаті
+taskcreatecount = Створено задач
+taskcommentcount = Коментарів до задач
+taskcommentresponsecount = Відповідей на коментарі
+
 subscriptionupdated  = Підписку оновлено
 unknownscheduler = Невідомий тип частоти підписки
 unknowncontents = Невідомий формат повідомлень
@@ -31,6 +36,7 @@ areyousure = Ви впевнені?
 
 subscribeforpersonevents = Підписка на події пов’язані із персоною
 person = Персона
+platform = Платформа
 find = Знайти
 foundperson = Знайдено персону
 personnotfound = Персону не знайдено

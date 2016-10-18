@@ -28,4 +28,12 @@
 		<subject>Запит на зміну емейл адреси</subject>
 		<description>when user requests to change email address</description>
 	</changeemail>
+	<dailynotification>
+		<subject>Щоденний дайжест змін в мережі "Сила довіри"</subject>
+		<description>Daily report for a subscribed user</description>
+	</dailynotification>
+	<hourlynotification>
+		<subject>Повідомлення про дії в мережі "Сила довіри"</subject>
+		<description>Hourly report for a subscribed user</description>
+	</hourlynotification>
 </templates>

@@ -12,6 +12,8 @@ class Description {
         return [
             'chatsay' => 'Chat message posted by any person',
             'taskcreate' => 'New task created',
+            'persons' => 'Persons',
+            'taskcomments' => 'Task comments',
         ];
     }
     
