@@ -29,7 +29,18 @@ class Subscription extends Mongo {
             'personid' => $personid]
             );
     }
-    public function getAllDailyPersonSubscriptions() 
+    public function getAllPersonsSubscribedForSystem($scheduler) 
     {
+		$items = $this->find('subscription',
+            ['personid' => 'system', "scheduler" => $scheduler]
+            );
+            
+		$result = [];
+		
+		foreach ($items as $o) {
+			$result[] = ['userid' => $o->userid, 'format' => $o->contents, 'subscription' => $o->options];
+		}
+		
+		return $result;
     }
 }

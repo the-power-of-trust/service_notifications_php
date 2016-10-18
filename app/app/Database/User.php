@@ -32,7 +32,7 @@ class User extends Mongo {
     
     public function getUserRecord($id_or_record) 
     {
-        if (is_array($id_or_record)) {
+        if (is_array($id_or_record) || is_object($id_or_record)) {
             return $id_or_record;
         }
         return $this->getUser($id_or_record);

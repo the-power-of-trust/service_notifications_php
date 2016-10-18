@@ -153,6 +153,6 @@ class Application extends \Gelembjuk\WebApp\Application{
         if ($this->getOption('mookapi')) {
             return new \PowerOfTrust\APIMook($config);
         }
-        return new \PowerOfTrust\API($config);
+        return new \PowerOfTrust\APIDB($config);
     }
 }  

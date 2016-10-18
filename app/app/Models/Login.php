@@ -89,7 +89,7 @@ class Login extends \Gelembjuk\WebApp\Model {
         $logindb = $this->application->getDBO('Login');
         
         $user_rec = $logindb->getUserByEmail($email);
-
+$this->debug($user_rec);
         if (!$user_rec) {
             throw new \Exception($this->_('accountnotfound','account'));
         }

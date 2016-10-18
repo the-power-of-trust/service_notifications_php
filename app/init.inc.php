@@ -43,7 +43,7 @@ $options = array(
 		'compiledir' => $MYWEBSITE_DIR ."/../storage/template_compile/"
 		),
 	'emailtemplatespath' => $MYWEBSITE_DIR.'../resources/mail/',
-	'mookapi' => true
+	//'mookapi' => true
 	);
 
 $application = \app\Application::getInstance();
