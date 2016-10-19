@@ -15,10 +15,13 @@ extendedcontents = Розширений звіт
 
 chatsay = Повідомлення в чаті
 taskcreate = Створено задачу
+taskcreates = Створено задачі
+person = Персони
 taskcomment = Коментар до задачі
 taskcommentresponse = Відповідь на коментар
 
 chatsaycount = Повідомлень у чаті
+taskcreatescount = Створено задач
 taskcreatecount = Створено задач
 taskcommentcount = Коментарів до задач
 taskcommentresponsecount = Відповідей на коментарі
