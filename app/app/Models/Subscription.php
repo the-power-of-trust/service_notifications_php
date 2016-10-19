@@ -54,6 +54,7 @@ class Subscription extends \Gelembjuk\WebApp\Model {
     {
         $potapi = $this->application->getPOTAPI();
         
+	$this->debug("find $name, $surname");
         return $potapi->findPerson($name,$surname); 
     }
     

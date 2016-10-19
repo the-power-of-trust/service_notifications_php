@@ -12,6 +12,7 @@ class Cron extends \Gelembjuk\WebApp\Model {
 	}
 	public function hourly() 
 	{
+		$this->logQ('Hourly notifications','cron');
 		$subsmodel = $this->application->getModel('Notifications');
 		
 		$logs = $subsmodel->prepareHourlyEmails();
@@ -21,6 +22,7 @@ class Cron extends \Gelembjuk\WebApp\Model {
 	
 	public function daily() 
     {
+	$this->logQ('Daily notifications','cron');
         $subsmodel = $this->application->getModel('Notifications');
 		
 		$logs = $subsmodel->prepareDailyEmails();
@@ -30,6 +32,7 @@ class Cron extends \Gelembjuk\WebApp\Model {
     
     public function sendPreparedEmails()
     {
+	$this->logQ('Send queued emails','cron');
         $messagingmodel = $this->application->getModel('Messaging');
         
         $logs = $messagingmodel->sendPreparedSubsriptionEmails(50, 15);
