@@ -23,7 +23,7 @@ class Notifications extends Subscription {
     
     protected function prepareEmails($timeinterval,$scheduler)
     {
-		$timeinterval = new \PowerOfTrust\Period(1451374688, 1458382307);
+		//$timeinterval = new \PowerOfTrust\Period(1451374688, 1458382307);
 		
 		$notifications = [];
         

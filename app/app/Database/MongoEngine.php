@@ -158,6 +158,11 @@ class MongoEngine implements \Gelembjuk\DB\EngineInterface {
 		}
 		return FALSE;
 	}
+	
+	public function makeObjectId($_id)
+    {
+		return new \MongoDB\BSON\ObjectID($_id);
+    }
 
 	public function getRows($query)
 	{

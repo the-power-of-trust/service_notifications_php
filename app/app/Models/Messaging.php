@@ -121,7 +121,7 @@ class Messaging extends \Gelembjuk\WebApp\Model {
 		
 		$mailer->initMailer($maileroptions);
             
-		$mailer->sendEmail($email,$templatedata['subject'],$templatedata['body'],
+		$mailer->sendEmail($email,$subject,$body,
 			$from,$replyto,$ccemail,$bccemail,$textemail);
 			
 		return true;
@@ -131,9 +131,6 @@ class Messaging extends \Gelembjuk\WebApp\Model {
     
 		$template = (($scheduler == 'daily')?'daily':'hourly').'notification';
 		
-		$this->debug('email to '.$userid.' of format '.$format.' scheduled '.$scheduler);
-        $this->debug($info);
-        
         $logindb = $this->application->getDBO('Login');
         
         $user_rec = $logindb->getUser($userid);
@@ -217,13 +214,34 @@ class Messaging extends \Gelembjuk\WebApp\Model {
 		
 		$starttime = time();
 		
+		$total = 0;
+		
 		$logs = [];
 		
 		do {
 			$email = $notdb->getPreparedNotification();
+			echo '-';
+			if ($email) {
+				
+				$this->sendPreparedEmail(
+					$email['email'],
+					$email['subject'],
+					$email['body'],
+					$email['from'],
+					$email['replyto'],
+					$email['ccemail'],
+					$email['bccemail'],
+					$email['textemail']);
+				
+				$notdb->removeProcessed($email['_id']['oid']);
+				
+				$total++;
+				
+				$logs[] = "Sent to email ".$email['email'];
+			}
 			
-			
-		} while( time() - $starttime < $maxececutiontime );
+		} while( (time() - $starttime < $timelimit && $timelimit > 0 || $timelimit == 0) && 
+			($total < $limit && $limit > 0 || $limit == 0 ) && $email);
 		
 		return $logs;
     }

@@ -51,6 +51,11 @@ class Mongo extends \Gelembjuk\DB\Base {
     {
         $this->processError(new \Exception("Operation not supported"));
     }
+    
+    protected function makeObjectId($_id)
+    {
+		return $this->dbobject->makeObjectId($_id);
+    }
     /*
     * All these functions are disabled because SQL is not supported there
     */

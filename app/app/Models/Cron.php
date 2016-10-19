@@ -32,7 +32,7 @@ class Cron extends \Gelembjuk\WebApp\Model {
     {
         $messagingmodel = $this->application->getModel('Messaging');
         
-        $logs = $messagingmodel->sendPreparedSubsriptionEmails();
+        $logs = $messagingmodel->sendPreparedSubsriptionEmails(50, 15);
         
         return $logs;
     }
