@@ -16,8 +16,9 @@ extendedcontents = Розширений звіт
 chatsay = Повідомлення в чаті
 taskcreate = Створено задачу
 taskcreates = Створено задачі
-person = Персони
+persons = Персони
 taskcomment = Коментар до задачі
+taskcomments = Коментар до задачі
 taskcommentresponse = Відповідь на коментар
 
 chatsaycount = Повідомлень у чаті
