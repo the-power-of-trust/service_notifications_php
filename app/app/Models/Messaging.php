@@ -220,7 +220,7 @@ class Messaging extends \Gelembjuk\WebApp\Model {
 		
 		do {
 			$email = $notdb->getPreparedNotification();
-			echo '-';
+
 			if ($email) {
 				
 				$this->sendPreparedEmail(
@@ -233,7 +233,8 @@ class Messaging extends \Gelembjuk\WebApp\Model {
 					$email['bccemail'],
 					$email['textemail']);
 				
-				$notdb->removeProcessed($email['_id']['oid']);
+				//$notdb->removeProcessed($email['_id']['oid']);
+				$notdb->removeProcessedByData($email);
 				
 				$total++;
 				

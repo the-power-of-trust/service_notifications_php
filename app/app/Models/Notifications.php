@@ -145,6 +145,9 @@ class Notifications extends Subscription {
         
         if ($email) {
 			// save to a DB
+			$length = 40;
+			$email['id'] = substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+			
 			$notdb = $this->application->getDBO('Notification');
 			$notdb->addNotification($email);
         }

@@ -39,4 +39,15 @@ class Notification extends Mongo {
     {
 		$this->Coll('emailqueue')->deleteOne(['_id' => $this->makeObjectId($_id)]);
     }
+    public function removeProcessedByData($email)
+    {
+	$this->debug('em id '.$email['id']);
+		if (isset($email['id']) && $email['id'] != '') {
+$this->debug('delete by id');
+			$this->Coll('emailqueue')->deleteOne(['id' => $email['id']]);
+		} else {
+$this->debug('delete by data');
+			$this->Coll('emailqueue')->deleteOne(['email' => $email['email'],'body' => $email['body']]);
+		}
+    }
 }
