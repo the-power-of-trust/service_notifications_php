@@ -455,12 +455,6 @@ $this->debug($user_rec);
         $profiledb = $this->application->getDBO('Profile');
         $profiledb->updateUserEmail($this->getUserID(),$email);
         
-        $user_rec = $logindb->getUserRecord($this->getUserID());
-        
-        if ($user_rec['usertype'] == '') {
-            return $this->application->makeUrlQ('login','','view','asktype');
-        }
-        
         return '';
     }
     protected function checkPasswordResetCode($code,$email,$currentpasshash,$userid) 
